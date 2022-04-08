@@ -27,6 +27,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnDO.addMouseListener(hoverDO);
         btnMenu.addMouseListener(hoverMenu);
         btnOrder.addMouseListener(hoverOrder);
+        btnExit.addMouseListener(Exit);
     }
     
     public MouseListener hoverBil = new MouseAdapter() {
@@ -113,6 +114,13 @@ public class ViewHome extends javax.swing.JFrame {
             dispose();
         }
     };
+    
+    public MouseListener Exit = new MouseAdapter() {
+
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            dispose();
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,6 +149,9 @@ public class ViewHome extends javax.swing.JFrame {
         btnOrder = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -293,7 +304,36 @@ public class ViewHome extends javax.swing.JFrame {
                 .addGroup(btnOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel6))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        btnExit.setBackground(new java.awt.Color(255, 102, 102));
+
+        jLabel14.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Exit");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Close_30px_1.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);
+        btnExit.setLayout(btnExitLayout);
+        btnExitLayout.setHorizontalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnExitLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnExitLayout.setVerticalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExitLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -309,6 +349,7 @@ public class ViewHome extends javax.swing.JFrame {
                 .addGap(105, 105, 105)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +366,9 @@ public class ViewHome extends javax.swing.JFrame {
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 720));
@@ -411,6 +454,7 @@ public class ViewHome extends javax.swing.JFrame {
     private javax.swing.JPanel btnBilling;
     private javax.swing.JPanel btnCus;
     private javax.swing.JPanel btnDO;
+    private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnMenu;
     private javax.swing.JPanel btnOrder;
     private javax.swing.JLabel jLabel1;
@@ -418,6 +462,8 @@ public class ViewHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
