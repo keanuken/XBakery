@@ -27,6 +27,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnDO.addMouseListener(hoverDO);
         btnMenu.addMouseListener(hoverMenu);
         btnOrder.addMouseListener(hoverOrder);
+        btnDisc.addMouseListener(hoverDisc);
         btnExit.addMouseListener(Exit);
     }
     
@@ -115,8 +116,33 @@ public class ViewHome extends javax.swing.JFrame {
         }
     };
     
-    public MouseListener Exit = new MouseAdapter() {
+    public MouseListener hoverDisc = new MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnDisc.setForeground(Color.WHITE);
+            btnDisc.setBackground(new Color(160,137,99));
+        }
 
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnDisc.setForeground(Color.BLACK);
+            btnDisc.setBackground(new Color(255,235,204));
+        }
+
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            new ViewDisc().setVisible(true);
+            dispose();
+        }
+    };
+    
+    public MouseListener Exit = new MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnExit.setForeground(Color.WHITE);
+            btnExit.setBackground(new Color(255,63,63));
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnExit.setForeground(Color.WHITE);
+            btnExit.setBackground(new Color(255,102,102));
+        }
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             dispose();
         }
@@ -152,6 +178,9 @@ public class ViewHome extends javax.swing.JFrame {
         btnExit = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        btnDisc = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -169,7 +198,7 @@ public class ViewHome extends javax.swing.JFrame {
 
         btnBilling.setBackground(new java.awt.Color(255, 235, 204));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         jLabel2.setText("Billing");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_billing_machine_30px.png"))); // NOI18N
@@ -179,25 +208,25 @@ public class ViewHome extends javax.swing.JFrame {
         btnBillingLayout.setHorizontalGroup(
             btnBillingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBillingLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnBillingLayout.setVerticalGroup(
             btnBillingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBillingLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(12, 12, 12)
                 .addGroup(btnBillingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel2))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         btnCus.setBackground(new java.awt.Color(255, 235, 204));
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         jLabel3.setText("Customers");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_people_30px_1.png"))); // NOI18N
@@ -207,7 +236,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnCusLayout.setHorizontalGroup(
             btnCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCusLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -216,16 +245,16 @@ public class ViewHome extends javax.swing.JFrame {
         btnCusLayout.setVerticalGroup(
             btnCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCusLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(btnCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel3))
-                .addGap(30, 30, 30))
+                .addGap(16, 16, 16))
         );
 
         btnDO.setBackground(new java.awt.Color(255, 235, 204));
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         jLabel4.setText("Detail Order");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Cheque_30px.png"))); // NOI18N
@@ -235,7 +264,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnDOLayout.setHorizontalGroup(
             btnDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnDOLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
@@ -243,17 +272,17 @@ public class ViewHome extends javax.swing.JFrame {
         );
         btnDOLayout.setVerticalGroup(
             btnDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnDOLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDOLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(btnDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel4))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9))
+                .addGap(15, 15, 15))
         );
 
         btnMenu.setBackground(new java.awt.Color(255, 235, 204));
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         jLabel5.setText("Menu");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_purchase_order_30px.png"))); // NOI18N
@@ -263,7 +292,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnMenuLayout.setHorizontalGroup(
             btnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnMenuLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
@@ -272,16 +301,17 @@ public class ViewHome extends javax.swing.JFrame {
         btnMenuLayout.setVerticalGroup(
             btnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnMenuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(15, 15, 15)
                 .addGroup(btnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel5))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel10))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         btnOrder.setBackground(new java.awt.Color(255, 235, 204));
+        btnOrder.setPreferredSize(new java.awt.Dimension(155, 60));
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         jLabel6.setText("Orders");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_shopping_cart_30px_1.png"))); // NOI18N
@@ -291,7 +321,7 @@ public class ViewHome extends javax.swing.JFrame {
         btnOrderLayout.setHorizontalGroup(
             btnOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnOrderLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
@@ -299,12 +329,12 @@ public class ViewHome extends javax.swing.JFrame {
         );
         btnOrderLayout.setVerticalGroup(
             btnOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnOrderLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnOrderLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(btnOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel6))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11))
+                .addGap(15, 15, 15))
         );
 
         btnExit.setBackground(new java.awt.Color(255, 102, 102));
@@ -336,6 +366,34 @@ public class ViewHome extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        btnDisc.setBackground(new java.awt.Color(255, 235, 204));
+
+        jLabel16.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
+        jLabel16.setText("Discounts");
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_discount_30px.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnDiscLayout = new javax.swing.GroupLayout(btnDisc);
+        btnDisc.setLayout(btnDiscLayout);
+        btnDiscLayout.setHorizontalGroup(
+            btnDiscLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDiscLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnDiscLayout.setVerticalGroup(
+            btnDiscLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDiscLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(btnDiscLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -344,12 +402,13 @@ public class ViewHome extends javax.swing.JFrame {
             .addComponent(btnCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnDO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnDisc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,9 +425,11 @@ public class ViewHome extends javax.swing.JFrame {
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDisc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 720));
@@ -454,6 +515,7 @@ public class ViewHome extends javax.swing.JFrame {
     private javax.swing.JPanel btnBilling;
     private javax.swing.JPanel btnCus;
     private javax.swing.JPanel btnDO;
+    private javax.swing.JPanel btnDisc;
     private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnMenu;
     private javax.swing.JPanel btnOrder;
@@ -464,6 +526,8 @@ public class ViewHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
