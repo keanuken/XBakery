@@ -56,7 +56,7 @@ public class ControllerMenu {
     public void update(String idMenu, String namaMenu, double harga) {
         int result = 0;
 
-        String query = "UPDATE detailorder SET namaMenu = '" + idMenu + "', "
+        String query = "UPDATE menu SET namaMenu = '" + namaMenu + "', "
                 + "harga = " + harga + " WHERE id_menu = '" + idMenu + "'";
         try {
             Statement stm = con.createStatement();
