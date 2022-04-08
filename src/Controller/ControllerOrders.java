@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Orders;
+import Modul.Orders;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.DetailOrder;
+import Modul.DetailOrder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

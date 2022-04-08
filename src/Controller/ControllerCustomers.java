@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Customers;
+import Modul.Customers;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

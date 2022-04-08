@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import Model.Billing;
+import Modul.Billing;
 
 /**
  *
