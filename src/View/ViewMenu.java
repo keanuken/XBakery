@@ -6,7 +6,7 @@
 package View;
 
 import Controller.ConnectionManager;
-import Modul.Menu;
+import Model.Menu;
 import Controller.ControllerMenu;
 import java.util.List;
 import javax.swing.JOptionPane;
