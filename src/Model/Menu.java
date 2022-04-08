@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modul;
+package Model;
 
 /**
  *
@@ -13,6 +13,8 @@ public class Menu {
     private String idMenu;
     private String namaMenu;
     private double harga;
+    
+    public Menu(){}
 
     public Menu(String idMenu, String namaMenu, double harga) {
         this.idMenu = idMenu;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modul;
+package Model;
 
 /**
  *
@@ -21,6 +21,8 @@ public class Orders {
         this.tanggalOrder = tanggalOrder;
         this.keterangan = keterangan;
     }
+
+    public Orders() {}
 
     public String getIdOrders() {
         return idOrders;
