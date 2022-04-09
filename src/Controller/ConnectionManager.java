@@ -17,7 +17,7 @@ public class ConnectionManager {
     private String Driver = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://localhost:3306/uts_pbd(p)";
     private String Username = "root";
-    private String Password = "";
+    private String Password = "basdat2020";
     
     public Connection LogOn(){
         try {

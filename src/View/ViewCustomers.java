@@ -1,20 +1,77 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package View;
 
+import Controller.ConnectionManager;
+import Model.Customers;
+import Controller.ControllerCustomers;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
- * @author ASUS
+ * @author synx
  */
 public class ViewCustomers extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewCustomers
+     * Creates new form Menu
      */
     public ViewCustomers() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+        model = new DefaultTableModel();
+        tableMenu.setModel(model);
+
+        model.addColumn("ID");
+        model.addColumn("Nama Cust");
+        model.addColumn("Alamat");
+        model.addColumn("No Telp");
+
+        getData();
+    }
+
+    ControllerCustomers conCust = new ControllerCustomers();
+    ConnectionManager conMan = new ConnectionManager();
+
+    private final DefaultTableModel model;
+    final JPanel panel = new JPanel();
+
+    public final void getData() {
+        DefaultTableModel dtm = (DefaultTableModel) tableMenu.getModel();
+        dtm.setRowCount(0);
+
+        List<Customers> myCustomers = conCust.tampil();
+        String[] data = new String[5];
+        for (Customers cust : myCustomers) {
+            data[0] = cust.getIdCustomers();
+            data[1] = cust.getNamaCustomers();
+            data[2] = cust.getAlamat();
+            data[3] = cust.getNoTlp();
+            dtm.addRow(data);
+        }
+    }
+    
+    public final void cariData() {
+        DefaultTableModel dtm = (DefaultTableModel) tableMenu.getModel();
+        dtm.setRowCount(0);
+
+        List<Customers> myCustomers = conCust.cari(fieldCari.getText());
+        String[] data = new String[5];
+        for (Customers cust : myCustomers) {
+            data[0] = cust.getIdCustomers();
+            data[1] = cust.getNamaCustomers();
+            data[2] = cust.getAlamat();
+            data[3] = cust.getNoTlp();
+            dtm.addRow(data);
+        }
     }
 
     /**
@@ -26,21 +83,299 @@ public class ViewCustomers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableMenu = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        fieldID = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        fieldNama = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        fieldAlmt = new javax.swing.JTextField();
+        btnUp = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+        btnDel = new javax.swing.JButton();
+        fieldCari = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        fieldTlp = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(211, 175, 118));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Customers");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, 3));
+
+        jScrollPane1.setBorder(null);
+
+        tableMenu.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMenuMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableMenu);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 610, -1));
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel2.setText("ID");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 150, -1, -1));
+
+        fieldID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldIDActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 190, 180, 40));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel3.setText("Nama");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 250, -1, -1));
+
+        fieldNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNamaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 180, 40));
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel4.setText("Alamat");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 340, -1, -1));
+
+        fieldAlmt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldAlmtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldAlmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 380, 180, 40));
+
+        btnUp.setBackground(new java.awt.Color(255, 255, 255));
+        btnUp.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_update_left_rotation_15px.png"))); // NOI18N
+        btnUp.setText("Update");
+        btnUp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, 40));
+
+        btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 550, -1, 40));
+
+        btnDel.setBackground(new java.awt.Color(255, 255, 255));
+        btnDel.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Delete_15px.png"))); // NOI18N
+        btnDel.setText("Delete");
+        btnDel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 100, 40));
+
+        fieldCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariActionPerformed(evt);
+            }
+        });
+        fieldCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariKeyReleased(evt);
+            }
+        });
+        jPanel1.add(fieldCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 180, 40));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel5.setText("Cari :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
+
+        fieldTlp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldTlpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldTlp, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 180, 40));
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel6.setText("No Telp");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 440, -1, -1));
+
+        jMenu1.setText("Home");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_home_15px.png"))); // NOI18N
+        jMenuItem1.setText("Home");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        new ViewHome().setVisible(true);
+            dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void fieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldIDActionPerformed
+
+    private void fieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNamaActionPerformed
+
+    private void fieldAlmtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAlmtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldAlmtActionPerformed
+
+    private void btnUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpActionPerformed
+        // TODO add your handling code here:
+        int i = tableMenu.getSelectedRow();
+        if (i == -1) {
+
+            JOptionPane.showMessageDialog(btnUp, "Harap pilih salah satu data!", "Warning!",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        conCust.update((fieldID.getText()), fieldNama.getText(), fieldAlmt.getText(), fieldTlp.getText());
+
+        JOptionPane.showMessageDialog(btnUp, "Data Berhasil Diubah");
+        getData();
+
+        fieldID.setText("");
+        fieldNama.setText("");
+        fieldAlmt.setText("");
+        fieldTlp.setText("");
+    }//GEN-LAST:event_btnUpActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        conCust.insert(
+                fieldID.getText(),
+                fieldNama.getText(),
+                fieldAlmt.getText(),
+                fieldTlp.getText()
+                );
+        JOptionPane.showMessageDialog(btnSubmit, "Data berhasil ditambahkan.");
+        getData();
+        fieldID.setText("");
+        fieldNama.setText("");
+        fieldAlmt.setText("");
+        fieldTlp.setText("");
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
+        // TODO add your handling code here:
+        int i = tableMenu.getSelectedRow();
+        if (i == -1) {
+
+            JOptionPane.showMessageDialog(btnDel, "Harap pilih satu data!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        conCust.delete((fieldID.getText()));
+        JOptionPane.showMessageDialog(btnDel, "Data berhasil dihapus!");
+        getData();
+
+        fieldID.setText("");
+        fieldNama.setText("");
+        fieldAlmt.setText("");
+        fieldTlp.setText("");
+    }//GEN-LAST:event_btnDelActionPerformed
+
+    private void fieldCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariActionPerformed
+
+    private void fieldCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariKeyReleased
+        // TODO add your handling code here:
+        if (fieldCari.getText().equals("")){
+            getData();
+        }else {
+            cariData(); 
+        }
+    }//GEN-LAST:event_fieldCariKeyReleased
+
+    private void tableMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMenuMouseClicked
+        // TODO add your handling code here:
+        int i = tableMenu.getSelectedRow();
+        TableModel model = tableMenu.getModel();
+        
+        fieldID.setText(model.getValueAt(i, 0).toString());
+        fieldNama.setText(model.getValueAt(i, 1).toString());
+        fieldAlmt.setText(model.getValueAt(i, 2).toString());
+        fieldTlp.setText(model.getValueAt(i, 2).toString());
+        
+    }//GEN-LAST:event_tableMenuMouseClicked
+
+    private void fieldTlpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTlpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTlpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -53,19 +388,19 @@ public class ViewCustomers extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Nimbux".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -78,5 +413,26 @@ public class ViewCustomers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDel;
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnUp;
+    private javax.swing.JTextField fieldAlmt;
+    private javax.swing.JTextField fieldCari;
+    private javax.swing.JTextField fieldID;
+    private javax.swing.JTextField fieldNama;
+    private javax.swing.JTextField fieldTlp;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableMenu;
     // End of variables declaration//GEN-END:variables
 }
