@@ -38,7 +38,7 @@ public class ControllerBilling {
         List<Billing> listBil = new ArrayList();
         try {
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM employee");
+            ResultSet rs = stm.executeQuery("SELECT * FROM billing");
             while (rs.next()) {
                 Billing bil = new Billing();
                 bil.setIdBilling(rs.getString("id_billing"));

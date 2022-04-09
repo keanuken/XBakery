@@ -107,7 +107,7 @@ public class ViewLogin extends javax.swing.JFrame {
         PreparedStatement ps;
 
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/uts_pbd(p)", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/uts_pbd(p)", "root", "basdat2020");
             ps = con.prepareStatement("SELECT * FROM admin WHERE username = ? AND password = ?");
             ps.setString(1, fieldUser.getText());
             ps.setString(2, String.valueOf(fieldPass.getPassword()));

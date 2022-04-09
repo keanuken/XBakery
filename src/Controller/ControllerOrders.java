@@ -39,7 +39,7 @@ public class ControllerOrders {
         List<Orders> listOrders = new ArrayList();
         try {
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM detailorder");
+            ResultSet rs = stm.executeQuery("SELECT * FROM orders");
             while (rs.next()) {
                 Orders o = new Orders();
                 o.setIdOrders(rs.getString("id_orders"));

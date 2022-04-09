@@ -43,7 +43,7 @@ public class ViewHome extends javax.swing.JFrame {
         }
 
         public void mouseClicked(java.awt.event.MouseEvent evt) {
-            
+            new ViewBilling().setVisible(true);
             dispose();
         }
     };
@@ -60,7 +60,7 @@ public class ViewHome extends javax.swing.JFrame {
         }
 
         public void mouseClicked(java.awt.event.MouseEvent evt) {
-            
+            new ViewCustomers().setVisible(true);
             dispose();
         }
     };
@@ -77,7 +77,7 @@ public class ViewHome extends javax.swing.JFrame {
         }
 
         public void mouseClicked(java.awt.event.MouseEvent evt) {
-            
+            new ViewDetailOrder().setVisible(true);
             dispose();
         }
     };
@@ -111,7 +111,7 @@ public class ViewHome extends javax.swing.JFrame {
         }
 
         public void mouseClicked(java.awt.event.MouseEvent evt) {
-            
+            new ViewOrder().setVisible(true);
             dispose();
         }
     };
